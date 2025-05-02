@@ -22,8 +22,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 15px 20px;
             background-color: rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .logo {
@@ -43,7 +45,9 @@
             background-color: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             padding: 8px 15px;
-            width: 350px;
+            width: 100%;
+            max-width: 350px;
+            order: 3;
         }
         
         .search-bar input {
@@ -59,6 +63,12 @@
             color: #aaa;
         }
         
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
         .explore-btn {
             display: flex;
             align-items: center;
@@ -66,6 +76,7 @@
             background: transparent;
             border: none;
             cursor: pointer;
+            white-space: nowrap;
         }
         
         .login-btn {
@@ -75,14 +86,16 @@
             border-radius: 4px;
             padding: 8px 20px;
             cursor: pointer;
+            white-space: nowrap;
         }
         
         .breadcrumb {
-            padding: 15px 30px;
+            padding: 15px 20px;
             display: flex;
             gap: 10px;
             align-items: center;
             font-size: 14px;
+            flex-wrap: wrap;
         }
         
         .breadcrumb a {
@@ -97,8 +110,9 @@
         
         .main-content {
             display: flex;
-            padding: 20px 30px;
+            padding: 20px;
             gap: 30px;
+            flex-direction: column;
         }
         
         .event-details {
@@ -107,7 +121,7 @@
         
         .event-image {
             flex: 1;
-            max-width: 500px;
+            max-width: 100%;
         }
         
         .event-image img {
@@ -116,7 +130,7 @@
         }
         
         .event-title {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: bold;
             margin-bottom: 10px;
             letter-spacing: 1px;
@@ -133,7 +147,7 @@
         
         .event-date, .event-location, .event-address {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 15px;
             color: #eee;
         }
@@ -141,6 +155,7 @@
         .event-date svg, .event-location svg, .event-address svg {
             margin-right: 15px;
             min-width: 20px;
+            margin-top: 3px;
         }
         
         .interest-section {
@@ -148,6 +163,7 @@
             align-items: center;
             margin: 30px 0;
             gap: 15px;
+            flex-wrap: wrap;
         }
         
         .interest-bar {
@@ -155,6 +171,7 @@
             height: 10px;
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 5px;
+            min-width: 100px;
         }
         
         .interest-bar-fill {
@@ -174,6 +191,7 @@
             border-radius: 4px;
             padding: 10px 20px;
             cursor: pointer;
+            white-space: nowrap;
         }
         
         .interest-count {
@@ -193,17 +211,21 @@
         .ticket-item {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .ticket-info {
             display: flex;
             flex-direction: column;
             gap: 5px;
+            flex: 1;
+            min-width: 200px;
         }
         
         .ticket-name {
@@ -218,6 +240,7 @@
             padding: 8px 15px;
             border-radius: 4px;
             display: inline-block;
+            margin-top: 5px;
         }
         
         .dropdown-icon {
@@ -229,6 +252,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            flex-shrink: 0;
         }
         
         .description-section {
@@ -250,6 +274,7 @@
         
         .description-content p {
             margin-bottom: 15px;
+            word-wrap: break-word;
         }
         
         .description-content ul {
@@ -261,10 +286,15 @@
             margin-bottom: 5px;
         }
         
+        .description-content a {
+            color: #4a90e2;
+            word-break: break-all;
+        }
+        
         /* Footer Styles */
         footer {
             background-color: #111;
-            padding: 40px 30px;
+            padding: 40px 20px;
             margin-top: 60px;
             border-top: 1px solid #333;
         }
@@ -280,6 +310,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         
         .promote-btn {
@@ -293,8 +325,8 @@
         
         .footer-sections {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
             margin-bottom: 40px;
         }
         
@@ -332,7 +364,9 @@
         .footer-bottom {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
         }
         
         .community-section h3, .social-section h3 {
@@ -343,6 +377,7 @@
         .app-buttons {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
         
         .app-btn {
@@ -361,6 +396,7 @@
         .social-icons {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
         
         .social-icon {
@@ -376,6 +412,94 @@
         
         .see-all:hover {
             color: white;
+        }
+        
+        /* Media Queries for Responsive Design */
+        @media (min-width: 768px) {
+            .main-content {
+                flex-direction: row;
+            }
+            
+            .event-image {
+                max-width: 500px;
+            }
+            
+            header {
+                padding: 15px 30px;
+            }
+            
+            .search-bar {
+                order: initial;
+            }
+            
+            .breadcrumb {
+                padding: 15px 30px;
+            }
+            
+            .main-content {
+                padding: 20px 30px;
+            }
+            
+            .footer-sections {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        
+        @media (max-width: 767px) {
+            header {
+                justify-content: center;
+            }
+            
+            .logo {
+                margin-right: auto;
+            }
+            
+            .header-actions {
+                margin-left: auto;
+            }
+            
+            .event-title {
+                font-size: 28px;
+            }
+            
+            .ticket-item {
+                padding: 15px 10px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+            }
+            
+            .community-section, .social-section {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .event-title {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .ticket-name {
+                font-size: 14px;
+            }
+            
+            .ticket-price {
+                font-size: 12px;
+            }
+            
+            .interest-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .interest-bar {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -398,14 +522,16 @@
             <input type="text" placeholder="Procure um evento, artista, produtor ou cidade">
         </div>
         
-        <button class="explore-btn">
-            EXPLORAR
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </button>
-        
-        <button class="login-btn">Entrar</button>
+        <div class="header-actions">
+            <button class="explore-btn">
+                EXPLORAR
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <button class="login-btn">Entrar</button>
+        </div>
     </header>
     
     <div class="breadcrumb">
